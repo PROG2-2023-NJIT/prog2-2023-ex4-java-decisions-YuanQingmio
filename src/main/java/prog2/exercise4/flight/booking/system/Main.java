@@ -22,8 +22,8 @@ public class Main
         String destinationAirport = "OULU AIRPORT";
         FlightBooking fb = new FlightBooking("John Doe", depart, returnDate, 1, 3);
         int expResult = 4;
-        fb.setTotalPassengers(1,3);
         int result = fb.getTotalPassengers();
+        fb.setTotalPassengers(1,3);
         fb.setPassengerFullName("John Doe");
         fb.setTicketNumber();
         fb = new FlightBooking(null, null, null, 0, 0);

@@ -10,7 +10,6 @@ public class FlightBooking {
 
     private String TicketNumber;
     private String PassengerFullName;
-
     private TripSource tripSource;
     private String FlightCompany;
     private TripDestination tripDestination;
@@ -29,7 +28,6 @@ public class FlightBooking {
     private double DepartingTicketPrice;
     private double ReturnTicketPrice;
     private int TripDate;
-
 
     public FlightBooking(String aNull, LocalDate depart, LocalDate returnDate, int i, int i1) {
         this.PassengerFullName = aNull;
@@ -90,37 +88,6 @@ public class FlightBooking {
 
         }
     }
-
-
-
-    public TripSource getTripSource() {
-        return tripSource;
-    }
-
-    public void setTripSource(String source) {
-        switch (source) {
-            case "1":
-                this.tripSource = tripSource.NANJING;
-                break;
-            case "2":
-                this.tripSource = tripSource.BEIJING;
-                break;
-            case "3":
-                this.tripSource = tripSource.SHANGHAI;
-                break;
-            case "4":
-                this.tripSource = tripSource.OULU;
-                break;
-            case "5":
-                this.tripSource = tripSource.HELSINKI;
-                break;
-            case "6":
-                this.tripSource = tripSource.PARIS;
-                break;
-            default:
-        }
-    }
-
     enum TripDestination {
         NANJING, BEIJING, SHANGHAI, OULU, HELSINKI, PARIS;
     }
@@ -154,6 +121,33 @@ public class FlightBooking {
             default:
         }
     }
+    public TripSource getTripSource() {
+        return tripSource;
+    }
+
+    public void setTripSource(String source) {
+        switch (source) {
+            case "1":
+                this.tripSource = tripSource.NANJING;
+                break;
+            case "2":
+                this.tripSource = tripSource.BEIJING;
+                break;
+            case "3":
+                this.tripSource = tripSource.SHANGHAI;
+                break;
+            case "4":
+                this.tripSource = tripSource.OULU;
+                break;
+            case "5":
+                this.tripSource = tripSource.HELSINKI;
+                break;
+            case "6":
+                this.tripSource = tripSource.PARIS;
+                break;
+            default:
+        }
+    }
 
     public String getSourceAirport() {
        return SourceAirport;
@@ -163,6 +157,29 @@ public class FlightBooking {
         NANJING_LUKOU_INTERNATION_AIRPORT
     }
 
+   
+
+    public void setDestinationAirport(String destinationAirport) {
+        DestinationAirport = String.valueOf(tripDestination);
+        if (tripDestination == tripDestination.NANJING) {
+            this.DestinationAirport = "Nanjing Lukou International Airport";
+        }
+        if (tripDestination == tripDestination.SHANGHAI) {
+            this.DestinationAirport = "Beijing Capital International Airport";
+        }
+        if (tripDestination == tripDestination.SHANGHAI) {
+            this.DestinationAirport = "Shanghai Pudong International Airport";
+        }
+        if (tripDestination == tripDestination.OULU) {
+            this.DestinationAirport = "Oulu Airport";
+        }
+        if (tripDestination == tripDestination.HELSINKI) {
+            this.DestinationAirport = "Helsinki Airport";
+        }
+        if (tripDestination == tripDestination.PARIS) {
+            this.DestinationAirport = " Paris Charles de Gaulle Airport";
+        }
+    }
     public void setSourceAirport(String sourceAirport) {
        
         if (tripSource == tripSource.NANJING) {
@@ -187,28 +204,6 @@ public class FlightBooking {
 
     public String getDestinationAirport() {
         return DestinationAirport;
-    }
-
-    public void setDestinationAirport(String destinationAirport) {
-        DestinationAirport = String.valueOf(tripDestination);
-        if (tripDestination == tripDestination.NANJING) {
-            this.DestinationAirport = "Nanjing Lukou International Airport";
-        }
-        if (tripDestination == tripDestination.SHANGHAI) {
-            this.DestinationAirport = "Beijing Capital International Airport";
-        }
-        if (tripDestination == tripDestination.SHANGHAI) {
-            this.DestinationAirport = "Shanghai Pudong International Airport";
-        }
-        if (tripDestination == tripDestination.OULU) {
-            this.DestinationAirport = "Oulu Airport";
-        }
-        if (tripDestination == tripDestination.HELSINKI) {
-            this.DestinationAirport = "Helsinki Airport";
-        }
-        if (tripDestination == tripDestination.PARIS) {
-            this.DestinationAirport = " Paris Charles de Gaulle Airport";
-        }
     }
 
     public String getTicketNumber() {
@@ -300,19 +295,7 @@ public class FlightBooking {
         this.ReturnTicketPrice = ReturnTicketPrice;
     }
 
-    public String toString() {
-        return "Dear " + PassengerFullName + ". Thank you for booking your flight with " +
-                FlightCompany + ". \nFollowing are the details of your booking and the trip:" + "\n" +
-                "Ticket Number: " + TicketNumber + "\n" +
-                "From " + tripSource + " to " + TripDestination + "\n" +
-                "Date of departure: " + DepartureDate + "\n" +
-                "Date of return: " + ReturnDate + "\n" +
-                "Total passengers: " + TotalPassengers + "\n" +
-                "Total ticket price in Euros: " + TotalTicketPrice;
-    }
-
     Random random = new Random();
-
     public void setTicketNumber() {
         String ticketNumber = null;
         switch (tripType) {
@@ -381,6 +364,17 @@ public class FlightBooking {
 
     enum ConfirmationMessage {
         CHANGE, SAVE
+    }
+
+    public String toString() {
+        return "Dear " + PassengerFullName + ". Thank you for booking your flight with " +
+                FlightCompany + ". \nFollowing are the details of your booking and the trip:" + "\n" +
+                "Ticket Number: " + TicketNumber + "\n" +
+                "From " + tripSource + " to " + TripDestination + "\n" +
+                "Date of departure: " + DepartureDate + "\n" +
+                "Date of return: " + ReturnDate + "\n" +
+                "Total passengers: " + TotalPassengers + "\n" +
+                "Total ticket price in Euros: " + TotalTicketPrice;
     }
 
     public void setConfirmationMessage(String confirmationmessage) {
